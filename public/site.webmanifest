@@ -1,0 +1,25 @@
+{
+	"name": "KFC - góly",
+	"short_name": "KFC - počítadlo gólov",
+	"description": "Aplikácia na počítania gólov počas zápasov KFC.",
+	"icons": [
+		{
+			"src": "/abacus.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/abacus.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"theme_color": "#171717",
+	"background_color": "#e8ebf2",
+	"display": "standalone",
+	"scope": "/",
+	"start_url": "/",
+	"orientation": "portrait"
+}
