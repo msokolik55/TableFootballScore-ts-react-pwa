@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { Period } from "../../types";
 import { sumScore } from "./parsing";
 import { saveAs } from "file-saver";
+import { FileDownload } from "@mui/icons-material";
 
 const Scoreboard = () => {
 	const [teamHome, setTeamHome] = useRecoilState(teamHomeAtom);
@@ -78,7 +79,7 @@ const Scoreboard = () => {
 				disabled={periods.length <= 0}
 				onClick={exportMatch}
 			>
-				export
+				<FileDownload />
 			</button>
 		</>
 	);
