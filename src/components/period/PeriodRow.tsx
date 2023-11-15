@@ -2,6 +2,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Period, Team } from "../../types";
 import PeriodTeam from "./PeriodTeam";
 import { teamAwayAtom, teamHomeAtom, periodsAtom } from "../../atom";
+import { Delete } from "@mui/icons-material";
 
 type PeriodProps = {
 	period: Period;
@@ -51,7 +52,9 @@ const PeriodRow = (props: PeriodProps) => {
 					home={false}
 				/>
 			</div>
-			<button onClick={deletePeriod}>X</button>
+			<button onClick={deletePeriod}>
+				<Delete />
+			</button>
 		</>
 	);
 };
