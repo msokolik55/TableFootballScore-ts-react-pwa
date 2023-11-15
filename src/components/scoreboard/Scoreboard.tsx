@@ -19,6 +19,10 @@ const Scoreboard = () => {
 		return `${player.name} - ${player.goals}`;
 	};
 
+	const saveToClipboard = (text: string) => {
+		navigator.clipboard.writeText(text);
+	};
+
 	const exportMatch = () => {
 		const header = `${teamHome.name} : ${teamAway.name}\n\n`;
 		const text = periods
@@ -35,9 +39,12 @@ const Scoreboard = () => {
 			})
 			.join(`\n\n${"-".repeat(25)}\n\n`);
 
-		const blob = new Blob([header, text], { type: "text/plain" });
+		const parts = [header, text];
+		const blob = new Blob(parts, { type: "text/plain" });
 		const fileName = `${teamHome.abbreviation}-${teamAway.abbreviation}.txt`;
 		saveAs(blob, fileName);
+
+		saveToClipboard(parts.join(""));
 	};
 
 	return (
