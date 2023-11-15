@@ -58,14 +58,10 @@ const PeriodPlayer = (props: PeriodPlayerProps) => {
 					alignItems: "center",
 				}}
 			>
-				<button
-					style={{ display: "flex" }}
-					onClick={() => updateGoals(() => getPlayerGoals() + 1)}
-				>
+				<button onClick={() => updateGoals(() => getPlayerGoals() + 1)}>
 					<Add />
 				</button>
 				<button
-					style={{ display: "flex" }}
 					onClick={() =>
 						updateGoals(() => Math.max(0, getPlayerGoals() - 1))
 					}
