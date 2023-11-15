@@ -1,21 +1,19 @@
 import { FileDownload, ContentCopy } from "@mui/icons-material";
-import { Snackbar, Alert, AlertColor } from "@mui/material";
+import { Snackbar, Alert } from "@mui/material";
 import saveAs from "file-saver";
 import { useState } from "react";
 import { sumScore } from "./parsing";
 import { useRecoilValue } from "recoil";
 import { teamHomeAtom, teamAwayAtom, periodsAtom } from "../../atom";
+import ReportButton from "./ReportButton";
+import { SnackbarConfig } from "../../types";
 
 const Report = () => {
 	const teamHome = useRecoilValue(teamHomeAtom);
 	const teamAway = useRecoilValue(teamAwayAtom);
 	const periods = useRecoilValue(periodsAtom);
 
-	const [snackbarConfig, setSnackbarConfig] = useState<{
-		open: boolean;
-		severity: AlertColor;
-		message: string;
-	}>({
+	const [snackbarConfig, setSnackbarConfig] = useState<SnackbarConfig>({
 		open: false,
 		severity: "info",
 		message: "",
@@ -54,9 +52,8 @@ const Report = () => {
 		navigator.clipboard
 			.writeText(generateReport().join(""))
 			.then((_) =>
-				setSnackbarConfig((old) => {
+				setSnackbarConfig((_) => {
 					return {
-						...old,
 						open: true,
 						severity: "info",
 						message: "Údaje skopírované do schránky!",
@@ -64,9 +61,8 @@ const Report = () => {
 				})
 			)
 			.catch((_) =>
-				setSnackbarConfig((old) => {
+				setSnackbarConfig((_) => {
 					return {
-						...old,
 						open: true,
 						severity: "error",
 						message: "Chyba pri kopírovaní do schránky!",
@@ -84,20 +80,8 @@ const Report = () => {
 	return (
 		<>
 			<div style={{ display: "flex", flexDirection: "row", gap: "1em" }}>
-				<button
-					style={{ marginBottom: "1em", flex: 1 }}
-					disabled={periods.length <= 0}
-					onClick={exportMatch}
-				>
-					<FileDownload />
-				</button>
-				<button
-					style={{ marginBottom: "1em", flex: 1 }}
-					disabled={periods.length <= 0}
-					onClick={saveToClipboard}
-				>
-					<ContentCopy />
-				</button>
+				<ReportButton fn={exportMatch} icon={<FileDownload />} />
+				<ReportButton fn={saveToClipboard} icon={<ContentCopy />} />
 			</div>
 			<Snackbar
 				open={snackbarConfig.open}

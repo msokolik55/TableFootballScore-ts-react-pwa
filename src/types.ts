@@ -1,3 +1,5 @@
+import { AlertColor } from "@mui/material";
+
 export type Player = {
 	name: string;
 };
@@ -24,4 +26,10 @@ export type Match = {
 		home: Team;
 		away: Team;
 	};
+};
+
+export type SnackbarConfig = {
+	open: boolean;
+	severity: AlertColor;
+	message: string;
 };
