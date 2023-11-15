@@ -1,13 +1,8 @@
 import TeamScoreboard from "./TeamScoreBoard";
 import { teamHomeAtom, teamAwayAtom, periodsAtom } from "../../atom";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { Period, Score } from "../../types";
-
-export const sumScore = (score: Score) => {
-	return score.players
-		.map((player) => player.goals)
-		.reduce((prev, curr) => prev + curr, 0);
-};
+import { Period } from "../../types";
+import { sumScore } from "./parsing";
 
 const Scoreboard = () => {
 	const [teamHome, setTeamHome] = useRecoilState(teamHomeAtom);
@@ -25,6 +20,7 @@ const Scoreboard = () => {
 					display: "flex",
 					flexDirection: "row",
 					justifyContent: "center",
+					alignItems: "center",
 				}}
 			>
 				<TeamScoreboard
@@ -33,7 +29,7 @@ const Scoreboard = () => {
 					setTeam={setTeamHome}
 					compare={(a, b) => a > b}
 				/>
-				:
+				<h1>:</h1>
 				<TeamScoreboard
 					reverse={true}
 					team={teamAway}
@@ -49,7 +45,7 @@ const Scoreboard = () => {
 					marginBottom: "0.5em",
 				}}
 			>
-				({periods.map(parsePeriod).join(", ")})
+				<h2>({periods.map(parsePeriod).join(", ")})</h2>
 			</div>
 		</>
 	);
