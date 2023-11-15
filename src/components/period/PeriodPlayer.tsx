@@ -1,6 +1,7 @@
 import { useSetRecoilState } from "recoil";
 import { Period, Player, Score } from "../../types";
 import { periodsAtom } from "../../atom";
+import { Add } from "@mui/icons-material";
 
 type PeriodPlayerProps = {
 	player: Player;
@@ -58,7 +59,7 @@ const PeriodPlayer = (props: PeriodPlayerProps) => {
 				}}
 			>
 				<button onClick={() => updateGoals(() => getPlayerGoals() + 1)}>
-					+
+					<Add />
 				</button>
 				<button
 					onClick={() =>
