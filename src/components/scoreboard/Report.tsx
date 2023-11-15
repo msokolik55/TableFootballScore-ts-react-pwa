@@ -1,32 +1,24 @@
 import { FileDownload, ContentCopy } from "@mui/icons-material";
-import { Snackbar, Alert } from "@mui/material";
 import saveAs from "file-saver";
-import { useState } from "react";
 import { sumScore } from "./parsing";
-import { useRecoilValue } from "recoil";
-import { teamHomeAtom, teamAwayAtom, periodsAtom } from "../../atom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import {
+	teamHomeAtom,
+	teamAwayAtom,
+	periodsAtom,
+	snackbarAtom,
+} from "../../atom";
 import ReportButton from "./ReportButton";
-import { SnackbarConfig } from "../../types";
 
 const Report = () => {
 	const teamHome = useRecoilValue(teamHomeAtom);
 	const teamAway = useRecoilValue(teamAwayAtom);
 	const periods = useRecoilValue(periodsAtom);
 
-	const [snackbarConfig, setSnackbarConfig] = useState<SnackbarConfig>({
-		open: false,
-		severity: "info",
-		message: "",
-	});
+	const setSnackbar = useSetRecoilState(snackbarAtom);
 
 	const formatPlayer = (player: { name: string; goals: number }) => {
 		return `${player.name} - ${player.goals}`;
-	};
-
-	const handleClose = () => {
-		setSnackbarConfig((old) => {
-			return { ...old, open: false };
-		});
 	};
 
 	const generateReport = () => {
@@ -52,7 +44,7 @@ const Report = () => {
 		navigator.clipboard
 			.writeText(generateReport().join(""))
 			.then((_) =>
-				setSnackbarConfig((_) => {
+				setSnackbar((_) => {
 					return {
 						open: true,
 						severity: "info",
@@ -61,7 +53,7 @@ const Report = () => {
 				})
 			)
 			.catch((_) =>
-				setSnackbarConfig((_) => {
+				setSnackbar((_) => {
 					return {
 						open: true,
 						severity: "error",
@@ -83,19 +75,6 @@ const Report = () => {
 				<ReportButton fn={exportMatch} icon={<FileDownload />} />
 				<ReportButton fn={saveToClipboard} icon={<ContentCopy />} />
 			</div>
-			<Snackbar
-				open={snackbarConfig.open}
-				autoHideDuration={3000}
-				onClose={handleClose}
-			>
-				<Alert
-					onClose={handleClose}
-					severity={snackbarConfig.severity}
-					sx={{ width: "100%" }}
-				>
-					{snackbarConfig.message}
-				</Alert>
-			</Snackbar>
 		</>
 	);
 };
