@@ -1,7 +1,7 @@
 import { useSetRecoilState } from "recoil";
 import { Period, Player, Score } from "../../types";
 import { periodsAtom } from "../../atom";
-import { Add } from "@mui/icons-material";
+import { Add, Remove } from "@mui/icons-material";
 
 type PeriodPlayerProps = {
 	player: Player;
@@ -66,7 +66,7 @@ const PeriodPlayer = (props: PeriodPlayerProps) => {
 						updateGoals(() => Math.max(0, getPlayerGoals() - 1))
 					}
 				>
-					-
+					<Remove />
 				</button>
 				<>
 					{
