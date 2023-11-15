@@ -16,7 +16,13 @@ const TeamScoreboard = (props: TeamScoreboardProps) => {
 	const periods = useRecoilValue(periodsAtom);
 
 	return (
-		<div style={{ display: "flex", flexDirection: "column" }}>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: !props.reverse ? "end" : "start",
+			}}
+		>
 			<TeamPicker team={props.team} setTeam={props.setTeam} />
 			<div
 				style={{
