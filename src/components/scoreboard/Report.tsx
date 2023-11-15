@@ -43,8 +43,8 @@ const Report = () => {
 	const saveToClipboard = () => {
 		navigator.clipboard
 			.writeText(generateReport().join(""))
-			.then((_) =>
-				setSnackbar((_) => {
+			.then(() =>
+				setSnackbar(() => {
 					return {
 						open: true,
 						severity: "info",
@@ -52,8 +52,8 @@ const Report = () => {
 					};
 				})
 			)
-			.catch((_) =>
-				setSnackbar((_) => {
+			.catch(() =>
+				setSnackbar(() => {
 					return {
 						open: true,
 						severity: "error",

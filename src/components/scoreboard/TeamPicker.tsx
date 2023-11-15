@@ -24,7 +24,7 @@ const TeamPicker = (props: TeamPickerProps) => {
 			(team) => team.abbreviation === e.target.value
 		)[0];
 
-		props.setTeam((_) => selectedTeam);
+		props.setTeam(() => selectedTeam);
 	};
 
 	return (
