@@ -1,4 +1,4 @@
-import TeamScoreboard from "./TeamScoreBoard";
+import TeamScoreboard from "./TeamScoreboard";
 import { teamHomeAtom, teamAwayAtom, periodsAtom } from "../../atom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { Period } from "../../types";
