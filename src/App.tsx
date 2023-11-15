@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import "./App.css";
 import Scoreboard from "./components/scoreboard/Scoreboard";
 import PeriodRow from "./components/period/PeriodRow";
+import { Add } from "@mui/icons-material";
 
 function App() {
 	const [periods, setPeriods] = useRecoilState(periodsAtom);
@@ -35,7 +36,9 @@ function App() {
 			style={{ display: "flex", flexDirection: "column", width: "100%" }}
 		>
 			<Scoreboard />
-			<button onClick={addPeriod}>+</button>
+			<button onClick={addPeriod}>
+				<Add />
+			</button>
 
 			{periods.map((period) => (
 				<PeriodRow key={period.id} period={period} />
