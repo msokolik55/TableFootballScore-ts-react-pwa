@@ -73,7 +73,11 @@ const Scoreboard = () => {
 			>
 				<h2>({periods.map(parsePeriod).join(", ")})</h2>
 			</div>
-			<button style={{ marginBottom: "1em" }} onClick={exportMatch}>
+			<button
+				style={{ marginBottom: "1em" }}
+				disabled={periods.length <= 0}
+				onClick={exportMatch}
+			>
 				export
 			</button>
 		</>
