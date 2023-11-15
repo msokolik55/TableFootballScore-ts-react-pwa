@@ -28,14 +28,14 @@ const Scoreboard = () => {
 					reverse={false}
 					team={teamHome}
 					setTeam={setTeamHome}
-					compare={(a, b) => a > b}
+					compare={(a: number, b: number) => a > b}
 				/>
 				<h1>:</h1>
 				<TeamScoreboard
 					reverse={true}
 					team={teamAway}
 					setTeam={setTeamAway}
-					compare={(a, b) => a < b}
+					compare={(a: number, b: number) => a < b}
 				/>
 			</div>
 			<div
