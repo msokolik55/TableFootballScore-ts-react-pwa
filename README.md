@@ -1,27 +1,59 @@
-# React + TypeScript + Vite
+# Table Football Scoreboard App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app for managing and displaying the score for table football matches. This app provides a user-friendly interface to track periods, goals, and team scores during a table football game.
 
-Currently, two official plugins are available:
+## Features
+- Scoreboard Display:
+   - Clear and visible representation of the current score for both home and away teams.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Period Management:
+   - Add multiple periods to keep track of the game progress.
 
-## Expanding the ESLint configuration
+- Player Goals:
+   - Record goals scored by individual players for each team in each period.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Snackbar Notifications:
+   - Receive real-time notifications for important events or updates during the game.
 
-- Configure the top-level `parserOptions` property like this:
+## Usage
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+1. Setting Up:
+
+- Clone the repository:
+```
+git clone https://github.com/your-username/table-football-scoreboard.git
+cd table-football-scoreboard
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Running the App:
+
+- Start the React app:
+```
+npm install
+npm start
+```
+
+3. Adding Periods:
+
+- Click the + button to add a new period and record scores for each team.
+
+4. Recording Goals:
+
+- Update player goals in each period to maintain an accurate record of the game.
+
+5. Snackbar Notifications:
+
+- Receive notifications for successful updates or any issues during the game.
+
+## Customization
+
+- Team Configuration:
+   - Modify the `teamHome` and `teamAway` objects in `types.ts` to customize team names and player details.
+
+## Technologies Used
+
+- React: The app is built using React, providing a dynamic and responsive user interface.
+- Material-UI: Material-UI components enhance the visual appeal and usability of the app.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
