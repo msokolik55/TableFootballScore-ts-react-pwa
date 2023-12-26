@@ -55,5 +55,9 @@ npm start
 - React: The app is built using React, providing a dynamic and responsive user interface.
 - Material-UI: Material-UI components enhance the visual appeal and usability of the app.
 
+## Screenshots
+
+![Main Page](screenshot.png)
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
