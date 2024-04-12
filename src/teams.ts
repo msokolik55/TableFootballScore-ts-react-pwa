@@ -53,8 +53,8 @@ export const TEAMS: Team[] = [
 	},
 	{
 		abbreviation: "PFC",
-		name: "PFC",
-		players: [{ name: "Hráč 1" }, { name: "Hráč 2" }],
+		name: "POUTNÍK FC",
+		players: [{ name: "Honza Vápno Vápeník" }, { name: "Jakub Holman" }],
 	},
 	{
 		abbreviation: "BBH",
